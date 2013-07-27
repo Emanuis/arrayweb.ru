@@ -1,0 +1,284 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="jquery-1.7.2.min.js"></script>
+<script>
+
+(function ($) {
+var hwSlideSpeed = 700;
+var hwTimeOut = 3000;
+var hwNeedLinks = true;
+
+$(document).ready(function(e) {
+	$('.slide').css(
+		{"position" : "absolute",
+		 "top":'0', "left": '0'}).hide().eq(0).show();
+	var slideNum = 0;
+	var slideTime;
+	slideCount = $("#slider .slide").size();
+	var animSlide = function(arrow){
+		clearTimeout(slideTime);
+		$('.slide').eq(slideNum).fadeOut(hwSlideSpeed);
+		if(arrow == "next"){
+			if(slideNum == (slideCount-1)){slideNum=0;}
+			else{slideNum++}
+			}
+		else if(arrow == "prew")
+		{
+			if(slideNum == 0){slideNum=slideCount-1;}
+			else{slideNum-=1}
+		}
+		else{
+			slideNum = arrow;
+			}
+		$('.slide').eq(slideNum).fadeIn(hwSlideSpeed, rotator);
+		$(".control-slide.active").removeClass("active");
+		$('.control-slide').eq(slideNum).addClass('active');
+		}
+if(hwNeedLinks){
+var $linkArrow = $('<a id="prewbutton" href="#">&lt;</a><a id="nextbutton" href="#">&gt;</a>')
+	.prependTo('#slider');		
+	$('#nextbutton').click(function(){
+		animSlide("next");
+		return false;
+		})
+	$('#prewbutton').click(function(){
+		animSlide("prew");
+		return false;
+		})
+}
+	var $adderSpan = '';
+	$('.slide').each(function(index) {
+			$adderSpan += '<span class = "control-slide">' + index + '</span>';
+		});
+	$('<div class ="sli-links">' + $adderSpan +'</div>').appendTo('#slider-wrap');
+	$(".control-slide:first").addClass("active");
+	$('.control-slide').click(function(){
+	var goToNum = parseFloat($(this).text());
+	animSlide(goToNum);
+	});
+	var pause = false;
+	var rotator = function(){
+			if(!pause){slideTime = setTimeout(function(){animSlide('next')}, hwTimeOut);}
+			}
+	$('#slider-wrap').hover(	
+		function(){clearTimeout(slideTime); pause = true;},
+		function(){pause = false; rotator();
+		});
+	rotator();
+});
+})(jQuery);
+
+</script>
+
+
+
+<title>arrayWEB</title>
+</head>
+
+<body>
+
+
+
+
+
+
+<div class="conteiner">
+<div class="header">
+<div id="slider-wrap">
+	<div id="slider">
+		<div class="slide"><img src="img/1.jpg" ></div>
+		<div class="slide"><img src="img/2.jpg" ></div>
+		<div class="slide"><img src="img/3.jpg" ></div>
+		<div class="slide"><img src="img/4.jpg" ></div>
+		<div class="slide"><img src="img/5.jpg" ></div>
+	</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<div class="main">
+
+
+
+<div class="news">
+
+<div class="news_w">
+<h4 class="rait" style="width:95px;">Дата: 27.02.2013</h4>  
+
+ <h4 class="rait" >Кликов: 4</h4> 
+
+	<h4 class="rait" style="width: 75px;" >Автор: Рувим</h4>
+
+
+
+<div class="title"><h3>What is Lorem Ipsum? </h3>
+
+
+
+</div>
+
+
+
+
+<img class="news_w" style="border-radius:2px;" alt="Форсаж 6" title="О фильме Форсаж 6" src="img/demo_img_1.jpg">
+ 
+	
+   
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+</p>
+
+
+
+<div style="clear:both;"></div>
+
+
+
+<div class="ful">
+
+
+<a href="#" class="knopka" name="knomka"> Показать полностью </a></div>
+
+
+
+<div class="share42init"></div>
+<script type="text/javascript" src="share42.js"></script>
+
+
+
+
+</div>
+
+<div class="news_w">
+<h4 class="rait" style="width:95px;">Дата: 27.02.2013</h4>  
+
+ <h4 class="rait" >Кликов: 4</h4> 
+
+	<h4 class="rait" style="width: 75px;" >Автор: Рувим</h4>
+
+
+
+<div class="title"><h3>What is Lorem Ipsum? </h3>
+
+
+
+</div>
+
+
+
+
+<img class="news_w" style="border-radius:2px;" alt="Форсаж 6" title="О фильме Форсаж 6" src="img/demo_img_1.jpg">
+ 
+	
+   
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+</p>
+
+
+
+<div style="clear:both;"></div>
+
+
+
+<div class="ful">
+
+
+<a href="#" class="knopka" name="knomka"> Показать полностью </a></div>
+
+
+
+<div class="share42init"></div>
+<script type="text/javascript" src="share42.js"></script>
+
+
+
+
+</div>
+<div class="news_w">
+<h4 class="rait" style="width:95px;">Дата: 27.02.2013</h4>  
+
+ <h4 class="rait" >Кликов: 4</h4> 
+
+	<h4 class="rait" style="width: 75px;" >Автор: Рувим</h4>
+
+
+
+<div class="title"><h3>What is Lorem Ipsum? </h3>
+
+
+
+</div>
+
+
+
+
+<img class="news_w" style="border-radius:2px;" alt="Форсаж 6" title="О фильме Форсаж 6" src="img/demo_img_1.jpg">
+ 
+	
+   
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+</p>
+
+
+
+<div style="clear:both;"></div>
+
+
+
+<div class="ful">
+
+
+<a href="#" class="knopka" name="knomka"> Показать полностью </a></div>
+
+
+
+<div class="share42init"></div>
+<script type="text/javascript" src="share42.js"></script>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="s_left">
+
+	
+	asdasdasdasd
+	</div>
+
+
+</div>
+
+
+
+<div class="footer">
+
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>
